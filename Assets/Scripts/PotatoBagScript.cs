@@ -18,10 +18,27 @@ public class PotatoBagScript : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D obj){
 		if (obj.gameObject.layer == 8) { 
 			GetComponent<Animator> ().SetBool ("isPunched", true);
-			this.transform.Translate (Vector2.up * force);
-			this.transform.Translate(Vector2.right * force);
-			GlobalScript.combo++;
-			Debug.Log(GlobalScript.combo);
+
+			if(GlobalScript.comboFinished){
+				GetComponent<Rigidbody2D>().AddForce (Vector2.up * force);
+				GetComponent<Rigidbody2D>().AddForce (Vector2.right * force);
+			}
+
+			if(GlobalScript.hasUppercut) {
+				GetComponent<Rigidbody2D>().AddForce (Vector2.up * force);
+			}
+
+			if(GlobalScript.hasPunched)
+				GlobalScript.bagDamage += 3;
+			if(GlobalScript.hasPunchedBis)
+				GlobalScript.bagDamage += 4;
+			if(GlobalScript.hasKicked)
+				GlobalScript.bagDamage += 6;
+			if(GlobalScript.hasUppercut)
+				GlobalScript.bagDamage += 10;
+			//GlobalScript.combo++;
+			force += GlobalScript.bagDamage;
+			Debug.Log("Dammage : " + GlobalScript.bagDamage + "%");
 		}
 	}
 

@@ -17,7 +17,7 @@ public class PunchScript : MonoBehaviour {
 	void Punch() {
 		GetComponent<BoxCollider2D> ().offset = new Vector2(0, 0);
 		if (GlobalScript.isPunching) {
-			GetComponent<BoxCollider2D> ().offset = new Vector2(0.8f ,0.05f);
+			GetComponent<BoxCollider2D> ().offset = new Vector2(1.4f ,0.05f);
 		}
 	}
 }
