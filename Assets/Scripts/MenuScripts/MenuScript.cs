@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+//using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour {
     public AudioClip sound;
@@ -36,7 +36,7 @@ public class MenuScript : MonoBehaviour {
     public void StartLevel()
     {
         DontDestroyOnLoad(GameObject.Find("FondSonore"));
-        SceneManager.LoadScene(1);//load Mod_Selection
+        Application.LoadLevel(1);//load Mod_Selection
     }
     public void ExitGame()
     {

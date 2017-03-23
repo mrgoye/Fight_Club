@@ -51,20 +51,19 @@
      <Compile Include="Assets\Scripts\DizainesScript.cs" />
      <Compile Include="Assets\Scripts\GlobalScript.cs" />
      <Compile Include="Assets\Scripts\GroundedScript.cs" />
+     <Compile Include="Assets\Scripts\MatchScript.cs" />
+     <Compile Include="Assets\Scripts\MenuScripts\MenuScript.cs" />
+     <Compile Include="Assets\Scripts\MenuScripts\SelectionScript.cs" />
+     <Compile Include="Assets\Scripts\PlayerHealthScript.cs" />
      <Compile Include="Assets\Scripts\PotatoBagScript.cs" />
      <Compile Include="Assets\Scripts\PunchScript.cs" />
+     <Compile Include="Assets\Scripts\SoundScript.cs" />
      <Compile Include="Assets\Scripts\UnitesScript.cs" />
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

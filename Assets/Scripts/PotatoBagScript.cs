@@ -3,12 +3,12 @@ using System.Collections;
 
 public class PotatoBagScript : MonoBehaviour {
 
-    PlayerHealthScript phs;
+    //PlayerHealthScript phs;
 	public float force;
 
 	// Use this for initialization
 	void Start () {
-        phs = gameObject.GetComponentInChildren<PlayerHealthScript>() ;
+        //phs = gameObject.GetComponentInChildren<PlayerHealthScript>() ;
 	}
 	
 	// Update is called once per frame
@@ -17,18 +17,17 @@ public class PotatoBagScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D obj){
-<<<<<<< HEAD
 		if (obj.gameObject.layer == 8) { 
 			GetComponent<Animator> ().SetBool ("isPunched", true);
 
-			if(GlobalScript.comboFinished){
+			/*if(GlobalScript.comboFinished){
 				GetComponent<Rigidbody2D>().AddForce (Vector2.up * force);
 				GetComponent<Rigidbody2D>().AddForce (Vector2.right * force);
 			}
 
 			if(GlobalScript.hasUppercut) {
 				GetComponent<Rigidbody2D>().AddForce (Vector2.up * force);
-			}
+			}*/
 
 			if(GlobalScript.hasPunched)
 				GlobalScript.bagDamage += 3;
@@ -42,17 +41,15 @@ public class PotatoBagScript : MonoBehaviour {
 			force += GlobalScript.bagDamage;
 			Debug.Log("Dammage : " + GlobalScript.bagDamage + "%");
 		}
-=======
         if (obj.gameObject.layer == 8)
         {
-            phs.takeDamage(10);
+            //phs.takeDamage(10);
             GetComponent<Animator>().SetBool("isPunched", true);
-            this.transform.Translate(Vector2.up * force);
-            this.transform.Translate(Vector2.right * force);
+			//GetComponent<Rigidbody2D>().AddForce (Vector2.up * force);
+			//GetComponent<Rigidbody2D>().AddForce (Vector2.right * force);
             GlobalScript.combo++;
             Debug.Log(GlobalScript.combo);
         }
->>>>>>> origin/Victor
 	}
 
 	void OnTriggerExit2D(Collider2D obj) {

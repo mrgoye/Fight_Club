@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+//using UnityEngine.SceneManagement;
 
 public class SelectionScript : MonoBehaviour {
     public GameObject versusButton;
@@ -20,10 +20,10 @@ public class SelectionScript : MonoBehaviour {
     }
     public void trainingClic()
     {
-        SceneManager.LoadScene(4);//load entrainement
+        Application.LoadLevel(4);//load entrainement
     }
     public void retourClick()
     {
-        SceneManager.LoadScene(0);
+        Application.LoadLevel(0);
     }
 }
