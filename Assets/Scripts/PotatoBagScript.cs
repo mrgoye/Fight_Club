@@ -12,7 +12,10 @@ public class PotatoBagScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		if (this.transform.position.y > 9.5)
+			GetComponent<Animator>().SetBool("isRotating", true);
+		else
+			GetComponent<Animator>().SetBool("isRotating", false);
 	}
 
 	void OnTriggerEnter2D(Collider2D obj){
