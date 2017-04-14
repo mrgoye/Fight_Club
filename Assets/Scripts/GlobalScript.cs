@@ -14,6 +14,7 @@ public class GlobalScript : MonoBehaviour {
 	public static float bagDamage = 0;
 	public static bool isGrounded = true;
 	public static bool comboFinished = false;
+	public static bool characterIsLeft = false;
 
 	private float timeLeft = 3;
 

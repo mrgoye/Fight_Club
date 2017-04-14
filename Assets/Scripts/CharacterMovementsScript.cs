@@ -7,6 +7,7 @@ public class CharacterMovementsScript : MonoBehaviour {
 	public float jumpForce;
 	private bool isLeft = false;
 
+
 	// Use this for initialization
 	void Start () {
 
@@ -40,6 +41,7 @@ public class CharacterMovementsScript : MonoBehaviour {
 			GlobalScript.isWalking = true;
 			GetComponent<Animator> ().SetBool ("isWalking", true);
 			this.transform.Translate (Vector2.right * speed);
+			GlobalScript.characterIsLeft = false;
 			if (this.isLeft) {
 				this.transform.Rotate (0, 180, 0);
 				this.isLeft = false;
@@ -48,6 +50,7 @@ public class CharacterMovementsScript : MonoBehaviour {
 			GlobalScript.isWalking = true;
 			GetComponent<Animator> ().SetBool ("isWalking", true);
 			this.transform.Translate (Vector2.right * speed);
+			GlobalScript.characterIsLeft = true;
 			if (!this.isLeft) {
 				this.transform.Rotate (0, 180, 0);
 				this.isLeft = true;

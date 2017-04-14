@@ -20,6 +20,6 @@ public class CameraScript : MonoBehaviour {
 		}
 		
 		if (target)
-			transform.position =new Vector3(target.position.x, target.position.y+3, target.position.z - distance);
+			transform.position = new Vector3(target.position.x, target.position.y+3, target.position.z - distance);
 	}
 }
