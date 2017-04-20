@@ -5,13 +5,12 @@ public class NemesisMovements : MonoBehaviour {
 
 	public float speed;
 	public float jumpForce;
+	public float attackRate = 0.1f;
 
-	public float attackRate = 0.3f;
-	private bool[] attack = new bool[2];
-	private float[] attackTimer = new float[2];
-	private int[] timesPressed = new int[2];
 
+	private int indexAttack = 1;
 	private bool isLeft = false;
+	private float attackTimer = 0;
 
 	private Animator anim;
 
@@ -29,9 +28,6 @@ public class NemesisMovements : MonoBehaviour {
 	void CheckMovements(){
 		GlobalScript.isWalking = false;
 		anim.SetBool ("Walk", false);
-		anim.SetBool ("Attack_1", attack [0]);
-		anim.SetBool ("Attack_2", attack [1]);
-
 
 		if (Input.GetKey (KeyCode.D)) {
 			GlobalScript.isWalking = true;
@@ -53,36 +49,30 @@ public class NemesisMovements : MonoBehaviour {
 			}
 		} else if (Input.GetKeyDown (KeyCode.Space) && GlobalScript.isGrounded) {
 			GetComponent<Rigidbody2D> ().AddForce (Vector2.up * jumpForce);
-		} else if (Input.GetKeyDown (KeyCode.L)) {
-			attack [0] = true;
-			attackTimer [0] = 0;
-			timesPressed [0]++;
-
 		} else if (Input.GetKeyDown (KeyCode.M)) {
-			attack [1] = true;
-			attackTimer [1] = 0;
-			timesPressed [1]++;
+			if(indexAttack > 1)
+				anim.ResetTrigger("Attack_" + (indexAttack - 1));
+			else if (indexAttack == 1 )
+				anim.ResetTrigger("Attack_3");
+
+			anim.SetTrigger("Attack_" + indexAttack);
+
+			if (indexAttack >= 3) 
+				indexAttack = 1;
+			else
+				indexAttack++;
 		}
 
-		if (attack [0]) {
-			attackTimer [0] += Time.deltaTime;
-			
-			if (attackTimer [0] > attackRate || timesPressed [0] >= 4) {
-				attackTimer [0] = 0;
-				attack [0] = false;
-				timesPressed [0] = 0;
-			}
+		if (indexAttack > 1)
+			attackTimer += Time.deltaTime;
+		else 
+			attackTimer = 0;
+
+		if (attackTimer > attackRate) {
+			indexAttack = 1;
 		}
 
-		if (attack [1]) {
-			attackTimer [1] += Time.deltaTime;
-			
-			if (attackTimer [1] > attackRate || timesPressed [1] >= 4) {
-				attackTimer [1] = 0;
-				attack [1] = false;
-				timesPressed [1] = 0;
-			}
-		}
+		Debug.Log(indexAttack + " et " + attackTimer);
 
 		if (GlobalScript.isGrounded) {
 			anim.SetBool ("Grounded", true);
